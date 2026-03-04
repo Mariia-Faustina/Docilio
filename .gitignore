@@ -1,0 +1,36 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Virtual environment
+venv/
+env/
+.venv/
+
+# PyInstaller output
+build/
+dist/
+
+# User data - never commit captures or personal settings
+master_folder/
+settings.json
+EXPORTED FILES/
+
+# Exported documents that may land in the project root
+*.xlsx
+*.docx
+*.pdf
+*.pptx
+
+# Excel lock files
+~$*
+
+# PyInstaller working files
+manifest.xml
+*.spec.bak
+
+# OS clutter
+.DS_Store
+Thumbs.db
+desktop.ini
