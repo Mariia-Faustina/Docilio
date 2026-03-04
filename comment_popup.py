@@ -86,8 +86,8 @@ class CommentPopup:
         self.canvas_h    = int(img_h * scale)
         self.image_scale = scale
 
-        win_w = self.canvas_w + 236
-        win_h = self.canvas_h + 110
+        win_w = max(self.canvas_w + 236, 500)
+        win_h = min(max(self.canvas_h + 160, 600), screen_h - 80)
         self.window.geometry(f"{win_w}x{win_h}+80+60")
 
         title_bar = tk.Frame(self.window, bg=self.ACCENT_COLOR)

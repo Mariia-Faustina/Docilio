@@ -1,6 +1,6 @@
 import ctypes
 try:
-    ctypes.windll.shcore.SetProcessDpiAwareness(1)
+    ctypes.windll.shcore.SetProcessDpiAwareness(2)
 except Exception:
     pass
 
@@ -19,8 +19,8 @@ except ImportError:
 
 class DocilioToolbar:
 
-    COLLAPSED_WIDTH = 200
-    EXPANDED_WIDTH  = 795
+    COLLAPSED_WIDTH = 210
+    EXPANDED_WIDTH  = 810
     HEIGHT          = 48
 
     BG_COLOR      = "#2c2c2c"
@@ -76,7 +76,7 @@ class DocilioToolbar:
             text="»",
             bg=self.BTN_COLOR, fg="#aaaaaa",
             relief="flat", cursor="hand2",
-            font=("Segoe UI", 10), width=3,
+            font=("Segoe UI", 10), width=2,
             command=self.toggle_expand
         )
         self.btn_toggle.pack(side="left", padx=(6, 0), pady=7)

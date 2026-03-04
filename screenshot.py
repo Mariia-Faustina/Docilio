@@ -169,7 +169,7 @@ def take_timed(toolbar_window, on_complete, delay_seconds=3):
     overlay.configure(bg="#1e1e1e")
 
     # Position in the bottom-right corner, out of the way
-    overlay.geometry(f"180x80+{screen_w - 200}+{screen_h - 120}")
+    overlay.geometry(f"220x80+{screen_w - 240}+{screen_h - 160}")
 
     countdown_label = tk.Label(
         overlay, text="",
