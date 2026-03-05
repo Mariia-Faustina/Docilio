@@ -79,11 +79,11 @@ Hit Export when you are done. Docilio compiles every screenshot and comment into
 
 ## More tools
 
-**Stitch** — combine multiple screenshots into one long image. Useful for showing a full page, a complete user flow, or anything that spans more than one screen.
+**Stitch** - combine multiple screenshots into one long image. Useful for showing a full page, a complete user flow, or anything that spans more than one screen.
 
 ![Stitch](screenshots/stitch.png)
 
-**Compare** — pick any two screenshots as Before and After. Docilio generates a stacked comparison with a divider and labels automatically.
+**Compare** - pick any two screenshots as Before and After. Docilio generates a stacked comparison with a divider and labels automatically.
 
 ![Compare](screenshots/compare.png)
 
@@ -110,23 +110,6 @@ No Python. No installs. Nothing else.
 
 > Windows will show a security prompt on first launch. This is expected. The Alt+X hotkey requires elevated permissions to work across all applications. You can skip it and use everything else through the toolbar normally.
 
-### Run from source
-
-```bash
-git clone https://github.com/Mariia-Faustina/Docilio.git
-cd Docilio
-pip install -r requirements.txt
-python main.py
-```
-
-### Build the exe yourself
-
-```bash
-pip install -r requirements.txt
-```
-
-Run `build.bat`. It compiles everything into `dist\Docilio\` and creates a desktop shortcut automatically. First build takes a few minutes, faster after that.
-
 ---
 
 ## Settings
@@ -140,7 +123,6 @@ Click Settings in the toolbar to configure capture mode, whether the annotator o
 ## Known limitations
 
 - Windows only. Mac support is on the roadmap.
-- First launch from the exe takes a moment to start, this is a PyInstaller limitation not a bug
 - OCR requires [Tesseract](https://github.com/UB-Mannheim/tesseract/wiki) installed separately
 
 ---
