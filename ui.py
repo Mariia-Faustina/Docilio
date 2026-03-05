@@ -20,7 +20,7 @@ except ImportError:
 class DocilioToolbar:
 
     COLLAPSED_WIDTH = 210
-    EXPANDED_WIDTH  = 810
+    EXPANDED_WIDTH  = 830
     HEIGHT          = 48
 
     BG_COLOR      = "#2c2c2c"
@@ -76,7 +76,7 @@ class DocilioToolbar:
             text="»",
             bg=self.BTN_COLOR, fg="#aaaaaa",
             relief="flat", cursor="hand2",
-            font=("Segoe UI", 10), width=2,
+            font=("Segoe UI", 10), width=3,
             command=self.toggle_expand
         )
         self.btn_toggle.pack(side="left", padx=(6, 0), pady=7)
