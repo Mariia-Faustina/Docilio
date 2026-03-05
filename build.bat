@@ -38,6 +38,16 @@ python -m PyInstaller --onedir --windowed --name Docilio --icon=Docilio.ico ^
     --hidden-import docx ^
     --hidden-import reportlab ^
     --hidden-import pptx ^
+    --exclude-module numpy ^
+    --exclude-module scipy ^
+    --exclude-module matplotlib ^
+    --exclude-module pandas ^
+    --exclude-module IPython ^
+    --exclude-module jupyter ^
+    --exclude-module notebook ^
+    --exclude-module pytest ^
+    --exclude-module unittest ^
+    --exclude-module tkinter.test ^
     --add-data "settings.py;." ^
     --add-data "file_manager.py;." ^
     --add-data "screenshot.py;." ^
