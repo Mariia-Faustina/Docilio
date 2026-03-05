@@ -79,11 +79,11 @@ Hit Export when you are done. Docilio compiles every screenshot and comment into
 
 ## More tools
 
-**Stitch** — combine multiple screenshots into one long image. Useful for showing a full page, a complete user flow, or anything that spans more than one screen.
+**Stitch** - combine multiple screenshots into one long image. Useful for showing a full page, a complete user flow, or anything that spans more than one screen.
 
 ![Stitch](screenshots/stitch.png)
 
-**Compare** — pick any two screenshots as Before and After. Docilio generates a stacked comparison with a divider and labels automatically.
+**Compare** - pick any two screenshots as Before and After. Docilio generates a stacked comparison with a divider and labels automatically.
 
 ![Compare](screenshots/compare.png)
 
