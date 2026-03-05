@@ -1,6 +1,6 @@
 import ctypes
 try:
-    ctypes.windll.shcore.SetProcessDpiAwareness(2)
+    ctypes.windll.shcore.SetProcessDpiAwareness(1)
 except Exception:
     pass
 
@@ -19,9 +19,9 @@ except ImportError:
 
 class DocilioToolbar:
 
-    COLLAPSED_WIDTH = 210
-    EXPANDED_WIDTH  = 830
     HEIGHT          = 48
+    COLLAPSED_WIDTH = 210  
+    EXPANDED_WIDTH  = 830 
 
     BG_COLOR      = "#2c2c2c"
     BTN_COLOR     = "#3d3d3d"
@@ -44,10 +44,13 @@ class DocilioToolbar:
         self.screenshot_count = tk.IntVar(value=count_screenshots())
 
         self.root.geometry(f"{self.COLLAPSED_WIDTH}x{self.HEIGHT}+100+100")
-        self.root.minsize(self.COLLAPSED_WIDTH, self.HEIGHT)
         self.root.update_idletasks()
 
         self._build_toolbar()
+
+        # After build, widths are calculated dynamically
+        self.root.geometry(f"{self.COLLAPSED_WIDTH}x{self.HEIGHT}+100+100")
+        self.root.minsize(self.COLLAPSED_WIDTH, self.HEIGHT)
         self._make_draggable()
         self._register_hotkeys()
         self.update_capture_label()
@@ -181,6 +184,16 @@ class DocilioToolbar:
         self.btn_close.bind("<Enter>", lambda e: self.btn_close.config(bg="#e74c3c"))
         self.btn_close.bind("<Leave>", lambda e: self.btn_close.config(bg="#c0392b"))
 
+        # Calculate dynamic widths based on screen size and actual button sizes
+        self.root.update_idletasks()
+        self.COLLAPSED_WIDTH = (
+            self.btn_capture.winfo_reqwidth() +
+            self.btn_toggle.winfo_reqwidth() + 60
+        )
+        # Expanded width: use hardcoded but cap to screen width minus margin
+        screen_w = self.root.winfo_screenwidth()
+        self.EXPANDED_WIDTH = min(830, screen_w - 50)
+
         # Drag handle on the right edge for manual width adjustment
         self.resize_handle = tk.Frame(
             self.frame, bg=self.DIVIDER_COLOR, width=5, cursor="sb_h_double_arrow"
@@ -195,8 +208,13 @@ class DocilioToolbar:
     def _register_hotkeys(self):
         """Registers global keyboard shortcuts. Requires the keyboard package."""
         if not KEYBOARD_AVAILABLE:
+            print("keyboard package not available, hotkeys disabled")
             return
-        keyboard.add_hotkey("alt+x", lambda: self.root.after(0, self.on_capture_click))
+        try:
+            keyboard.add_hotkey("alt+x", lambda: self.root.after(0, self.on_capture_click))
+            print("Alt+X hotkey registered successfully")
+        except Exception as e:
+            print(f"Hotkey registration failed: {e}")
 
     def toggle_expand(self):
         x = self.root.winfo_x()
